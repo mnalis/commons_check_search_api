@@ -136,7 +136,7 @@ def main():
                 "generator": "categories",
                 "prop": "info", 
                 "gcllimit": 500,
-                "titles": "Category:%search_term%"  # Placeholder for the search term
+                "titles": "%search_term%"  # Placeholder for the search term
             }
         },
     ]
