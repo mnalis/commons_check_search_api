@@ -123,7 +123,7 @@ def main():
                 "gcmtype": "subcat",
                 "prop": "info", 
                 "gcmlimit": 500,
-                "gcmtitle": "%search_term%"  # Placeholder for the search term
+                "gcmtitle": "Category:%search_term%"  # Placeholder for the search term
             }
         },
         {
@@ -136,7 +136,7 @@ def main():
                 "generator": "categories",
                 "prop": "info", 
                 "gcllimit": 500,
-                "titles": "%search_term%"  # Placeholder for the search term
+                "titles": "Category:%search_term%"  # Placeholder for the search term
             }
         },
     ]
