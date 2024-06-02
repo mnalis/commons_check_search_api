@@ -39,8 +39,10 @@ def process_api(api_name, base_url, params, search_term, expected_result):
     params = {k: (search_term if v is None else v) for k, v in params.items()}
     result, full_url = call_api(base_url, params)
     matches = find_full_matches(result, expected_result)
-    matched_text = ', '.join(f'"{match}"' for match in matches) if matches else ":x:"
-    return matched_text, full_url
+    matched_text = ', '.join(f'"{match}"' for match in matches) if matches else "no"
+    tooltip = f'yes ({matched_text})' if matches else "no"
+    display_text = "yes" if matches else "no"
+    return display_text, tooltip, full_url
 
 def main():
     input_file = 'input.csv'
@@ -79,8 +81,8 @@ def main():
             search_term, expected_result = row
             row_result = [expected_result, search_term]
             for api in apis:
-                matched_text, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
-                row_result.append(f'[{matched_text}]({full_url})')
+                display_text, tooltip, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
+                row_result.append(f'[{display_text}]({full_url} "{tooltip}")')
             results.append(row_result)
     
     header = ["Expected Result", "Search Term", "HotCat", "Special:UploadWizard"]
