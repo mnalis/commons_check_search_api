@@ -47,7 +47,7 @@ def main():
     WM_API = "https://commons.wikimedia.org/w/api.php"
     apis = [
         {
-            "name": "HotCat90",
+            "name": "HotCat",
             "url": WM_API,
             "params": {
                 "format": "json",
@@ -60,7 +60,7 @@ def main():
             }
         },
         {
-            "name": "Special:UploadWizard90",
+            "name": "Special:UW",
             "url": WM_API,
             "params": {
                 "format": "json",
