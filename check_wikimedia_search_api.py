@@ -81,6 +81,7 @@ def main():
             row_result = [expected_result, search_term]
             for api in apis:
                 display_text, tooltip, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
+                tooltip = tooltip.replace('"', r'\"')
                 row_result.append(f'[{display_text}]({full_url} "{tooltip}")')
             results.append(row_result)
 
