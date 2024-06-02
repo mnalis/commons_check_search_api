@@ -46,27 +46,27 @@ def process_api(api_name, base_url, params, search_term, expected_result, must_n
 def main():
     apis = [
         {
-            "name": "HotCat",
+            "name": "HotCat90",
             "url": "https://commons.wikimedia.org/w/api.php",
             "params": {
                 "format": "json",
                 "action": "query",
                 "list": "allpages",
                 "apnamespace": 14,
-                "aplimit": 30,
+                "aplimit": 50,
                 "apfrom": None,  # Placeholder for the search term
                 "apprefix": None  # Placeholder for the search term
             }
         },
         {
-            "name": "Special:UploadWizard",
+            "name": "Special:UploadWizard90",
             "url": "https://commons.wikimedia.org/w/api.php",
             "params": {
                 "action": "opensearch",
                 "format": "json",
                 "formatversion": 2,
                 "namespace": 14,
-                "limit": 10,
+                "limit": 50,
                 "search": None  # Placeholder for the search term
             }
         }
