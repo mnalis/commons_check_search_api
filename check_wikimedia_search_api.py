@@ -76,7 +76,7 @@ def main():
     # format of input.csv is: search_term|expected_result|must_not_match
     # must_not_match inverts the logic; with default "0" our search_term must much expected_results, but with "1" it must not match it (e.g. for testing failing to match hidden categories)
     with open('input.csv', 'r') as file:
-        reader = csv.reader(file, delimiter='|')
+        reader = csv.reader(file, delimiter='|', quotechar=None)
         for row in reader:
             search_term, expected_result, must_not_match = row
             must_not_match=bool(int(must_not_match))
