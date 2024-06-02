@@ -41,7 +41,7 @@ def process_api(api_name, base_url, params, search_term, expected_result):
     matches = find_full_matches(result, expected_result)
     matched_text = ', '.join(f'"{match}"' for match in matches) if matches else "no"
     tooltip = matched_text if matches else '---'
-    display_text = "yes" if matches else "no"
+    display_text = "matched" if matches else "---"
     return display_text, tooltip, full_url
 
 def main():
