@@ -36,7 +36,7 @@ def process_api(api_name, base_url, params, search_term, expected_result, must_n
     # Replace None values in params with the search term
     params = {k: (search_term if v is None else v) for k, v in params.items()}
     result, full_url = call_api(base_url, params)
-    matches = find_full_matches(result, expected_result)
+    matches = find_full_matches(result, f'Category:{expected_result}')
     # hover-over "title" tooltip
     tooltip = ', '.join(matches) if matches else '---'
     display_text = 'matched' if matches else 'no'
