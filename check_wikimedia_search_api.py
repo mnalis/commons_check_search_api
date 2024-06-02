@@ -33,8 +33,8 @@ def find_full_matches(data, expected_result):
     return matches
 
 def process_api(api_name, base_url, params, search_term, expected_result, must_not_match):
-    # Replace None values in params with the search term
-    params = {k: (search_term if v is None else v) for k, v in params.items()}
+    # Replace "%search_term%" in params with the actual search term
+    params = {k: (v.replace("%search_term%", search_term) if isinstance(v, str) else v) for k, v in params.items()}
     result, full_url = call_api(base_url, params)
     matches = find_full_matches(result, f'Category:{expected_result}')
     # hover-over "title" tooltip
@@ -55,8 +55,8 @@ def main():
                 "list": "allpages",
                 "apnamespace": 14,
                 "aplimit": 90,
-                "apfrom": None,  # Placeholder for the search term
-                "apprefix": None  # Placeholder for the search term
+                "apfrom": "%search_term%",  # Placeholder for the search term
+                "apprefix": "%search_term%"  # Placeholder for the search term
             }
         },
         {
@@ -68,7 +68,7 @@ def main():
                 "formatversion": 2,
                 "namespace": 14,
                 "limit": 90,
-                "search": None  # Placeholder for the search term
+                "search": "%search_term%"  # Placeholder for the search term
             }
         },
         {
@@ -82,7 +82,7 @@ def main():
                 "gsrnamespace" : 14,
                 "gsrlimit": 90,
                 "gsroffset": 0,
-                "gsrsearch": None  # Placeholder for the search term
+                "gsrsearch": "%search_term%"  # Placeholder for the search term
             }
         },
     ]
