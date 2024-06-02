@@ -84,8 +84,9 @@ def main():
                 display_text, tooltip, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
                 row_result.append(f'[{display_text}]({full_url} "{tooltip}")')
             results.append(row_result)
+
+    header = ["Expected Result", "Search Term"] + [api["name"] for api in apis]
     
-    header = ["Expected Result", "Search Term", "HotCat", "Special:UploadWizard"]
     table = [header] + results
     
     with open('output.md', 'w') as file:
