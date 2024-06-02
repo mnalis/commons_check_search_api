@@ -39,7 +39,7 @@ def process_api(api_name, base_url, params, search_term, expected_result):
     matches = find_full_matches(result, expected_result)
     matched_text = ', '.join(f'"{match}"' for match in matches) if matches else None
     tooltip = matched_text if matches else '---'
-    display_text = "matched" if matches else "---"
+    display_text = 'matched' if matches else 'no'
     return display_text, tooltip, full_url
 
 def main():
@@ -86,11 +86,10 @@ def main():
                 display_text, tooltip, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
                 tooltip = tooltip.replace('"', r'\"')
                 row_result.append(f'[{display_text}]({full_url} "{tooltip}")')
+            row_result.append ('?')
             results.append(row_result)
 
-    header = ["Expected Result", "Search Term"] + [api["name"] for api in apis]
-    
-    table = [header] + results
+    header = ["Expected Result", "Search Term"] + [api["name"] for api in apis] + ["Good?"]
     
     with open('output.md', 'w') as file:
         file.write('| ' + ' | '.join(header) + ' |\n')
