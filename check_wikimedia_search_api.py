@@ -39,7 +39,7 @@ def process_api(api_name, base_url, params, search_term, expected_result, must_n
     matches = find_full_matches(result, f'Category:{expected_result}')
     # hover-over "title" tooltip
     tooltip = ', '.join(matches) if matches else '---'
-    display_text = 'matched' if matches else 'no'
+    display_text = 'match' if matches else 'no'
     good_or_bad = ':heavy_check_mark:' if ((matches and not must_not_match) or (not matches and must_not_match)) else ':x:'
     return good_or_bad, display_text, tooltip, full_url
 
@@ -72,7 +72,7 @@ def main():
             }
         },
         {
-            "name": "gsrsearch",
+            "name": "app1",
             "url": WM_API,
             "params": {
                 "format": "json",
@@ -83,6 +83,60 @@ def main():
                 "gsrlimit": 90,
                 "gsroffset": 0,
                 "gsrsearch": "%search_term%"  # Placeholder for the search term
+            }
+        },
+        {
+            "name": "gsr_intitle",
+            "url": WM_API,
+            "params": {
+                "format": "json",
+                "action": "query",
+                "formatversion": 2,
+                "generator": "search",
+                "gsrnamespace" : 14,
+                "gsrlimit": 90,
+                "gsroffset": 0,
+                "gsrsearch": "intitle:%search_term%"  # Placeholder for the search term
+            }
+        },
+        {
+            "name": "app2",
+            "url": WM_API,
+            "params": {
+                "format": "json",
+                "action": "query",
+                "formatversion": 2,
+                "generator": "allcategories",
+                "gaclimit": 90,
+                "gacoffset": 0,
+                "gacprefix": "%search_term%"  # Placeholder for the search term
+            }
+        },
+        {
+            "name": "app3",
+            "url": WM_API,
+            "params": {
+                "format": "json",
+                "action": "query",
+                "formatversion": 2,
+                "generator": "categorymembers",
+                "gcmtype": "subcat",
+                "prop": "info", 
+                "gcmlimit": 500,
+                "gcmtitle": "%search_term%"  # Placeholder for the search term
+            }
+        },
+        {
+            "name": "app4",
+            "url": WM_API,
+            "params": {
+                "format": "json",
+                "action": "query",
+                "formatversion": 2,
+                "generator": "categories",
+                "prop": "info", 
+                "gcllimit": 500,
+                "titles": "%search_term%"  # Placeholder for the search term
             }
         },
     ]
