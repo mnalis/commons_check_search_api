@@ -37,8 +37,8 @@ def process_api(api_name, base_url, params, search_term, expected_result, must_n
     params = {k: (search_term if v is None else v) for k, v in params.items()}
     result, full_url = call_api(base_url, params)
     matches = find_full_matches(result, expected_result)
-    matched_text = ', '.join(f'"{match}"' for match in matches) if matches else None
-    tooltip = matched_text if matches else '---'
+    # hover-over "title" tooltip
+    tooltip = ', '.join(matches) if matches else '---'
     display_text = 'matched' if matches else 'no'
     good_or_bad = ':heavy_check_mark:' if ((matches and not must_not_match) or (not matches and must_not_match)) else ':x:'
     return good_or_bad, display_text, tooltip, full_url
