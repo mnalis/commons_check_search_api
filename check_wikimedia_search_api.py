@@ -13,7 +13,7 @@ def call_api(base_url, params):
 def find_full_matches(data, expected_result):
     matches = []
     
-    def search_common(v):
+    def search_any(v):
         if isinstance(v, dict):
             search_dict(v)
         elif isinstance(v, list):
@@ -23,17 +23,13 @@ def find_full_matches(data, expected_result):
     
     def search_dict(d):
         for k, v in d.items():
-            search_common(v)
+            search_any(v)
 
     def search_list(lst):
         for v in lst:
-            search_common(v)
+            search_any(v)
     
-    if isinstance(data, dict):
-        search_dict(data)
-    elif isinstance(data, list):
-        search_list(data)
-    
+    search_any(data)
     return matches
 
 def process_api(api_name, base_url, params, search_term, expected_result):
@@ -76,6 +72,8 @@ def main():
     ]
     
     results = []
+    # format of input.csv is: search_term|expected_result|must_not_match
+    # must_not_match inverts the logic; with default "0" our search_term must much expected_results, but with "1" it must not match it (e.g. for testing failing to match hidden categories)
     with open('input.csv', 'r') as file:
         reader = csv.reader(file, delimiter='|')
         for row in reader:
