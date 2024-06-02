@@ -86,6 +86,20 @@ def main():
             }
         },
         {
+            "name": "srsearch",
+            "url": WM_API,
+            "params": {
+                "format": "json",
+                "action": "query",
+                "list": "search",
+                "formatversion": 2,
+                "generator": "search",
+                "srnamespace" : 14,
+                "srlimit": 90,
+                "srsearch": "%search_term%"  # Placeholder for the search term
+            }
+        },
+        {
             "name": "gsr_intitle",
             "url": WM_API,
             "params": {
