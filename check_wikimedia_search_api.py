@@ -1,7 +1,6 @@
 import requests
 import csv
 import urllib.parse
-import json
 
 def call_api(base_url, params):
     full_url = f"{base_url}?{urllib.parse.urlencode(params)}"
@@ -40,9 +39,8 @@ def process_api(api_name, base_url, params, search_term, expected_result):
     params = {k: (search_term if v is None else v) for k, v in params.items()}
     result, full_url = call_api(base_url, params)
     matches = find_full_matches(result, expected_result)
-    was_match_found = 'yes' if matches else 'no'
     matched_text = ', '.join(f'"{match}"' for match in matches) if matches else ":x:"
-    return [api_name, expected_result, search_term, matched_text, full_url]
+    return matched_text, full_url
 
 def main():
     input_file = 'input.csv'
@@ -79,14 +77,20 @@ def main():
         reader = csv.reader(file, delimiter='|')
         for row in reader:
             search_term, expected_result = row
+            row_result = [expected_result, search_term]
             for api in apis:
-                result = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
-                results.append(result)
+                matched_text, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
+                row_result.append(f'[{search_term}]({full_url})' if matched_text != ":x:" else matched_text)
+            results.append(row_result)
     
-    with open('output.csv', 'w', newline='') as file:
-        writer = csv.writer(file, delimiter='|')
-        writer.writerow(["API", "Expected Result", "Search Term", "Matched", "API URL"])
-        writer.writerows(results)
+    header = ["Expected Result", "Search Term", "HotCat", "Special:UploadWizard"]
+    table = [header] + results
+    
+    with open('output.md', 'w') as file:
+        file.write('| ' + ' | '.join(header) + ' |\n')
+        file.write('| ' + ' | '.join(['---'] * len(header)) + ' |\n')
+        for row in results:
+            file.write('| ' + ' | '.join(row) + ' |\n')
 
 if __name__ == "__main__":
     main()
