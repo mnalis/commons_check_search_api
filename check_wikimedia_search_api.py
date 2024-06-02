@@ -80,8 +80,6 @@ def main():
         for row in reader:
             search_term, expected_result, must_not_match = row
             must_not_match=bool(int(must_not_match))
-            if must_not_match:
-                print ("must not match "+str(must_not_match)+" for " +search_term)
             row_result = [expected_result, search_term]
             for api in apis:
                 good_or_bad, display_text, tooltip, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result, must_not_match)
