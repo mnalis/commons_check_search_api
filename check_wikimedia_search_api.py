@@ -41,14 +41,14 @@ def process_api(api_name, base_url, params, search_term, expected_result):
     result, full_url = call_api(base_url, params)
     matches = find_full_matches(result, expected_result)
     was_match_found = 'yes' if matches else 'no'
-    matched_text = ', '.join(f'"{match}"' for match in matches)
-    return [api_name, expected_result, search_term, was_match_found, matched_text, full_url]
+    matched_text = ', '.join(f'"{match}"' for match in matches) if matches else ":x:"
+    return [api_name, expected_result, search_term, matched_text, full_url]
 
 def main():
     input_file = 'input.csv'
     apis = [
         {
-            "name": "query_apfrom",
+            "name": "HotCat",
             "url": "https://commons.wikimedia.org/w/api.php",
             "params": {
                 "format": "json",
@@ -85,7 +85,7 @@ def main():
     
     with open('output.csv', 'w', newline='') as file:
         writer = csv.writer(file, delimiter='|')
-        writer.writerow(["API", "Expected Result", "Search Term", "Was Match Found", "Matched", "API URL"])
+        writer.writerow(["API", "Expected Result", "Search Term", "Matched", "API URL"])
         writer.writerows(results)
 
 if __name__ == "__main__":
