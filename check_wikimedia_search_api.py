@@ -44,10 +44,11 @@ def process_api(api_name, base_url, params, search_term, expected_result, must_n
     return good_or_bad, display_text, tooltip, full_url
 
 def main():
+    WM_API = "https://commons.wikimedia.org/w/api.php"
     apis = [
         {
             "name": "HotCat90",
-            "url": "https://commons.wikimedia.org/w/api.php",
+            "url": WM_API,
             "params": {
                 "format": "json",
                 "action": "query",
@@ -60,10 +61,10 @@ def main():
         },
         {
             "name": "Special:UploadWizard90",
-            "url": "https://commons.wikimedia.org/w/api.php",
+            "url": WM_API,
             "params": {
-                "action": "opensearch",
                 "format": "json",
+                "action": "opensearch",
                 "formatversion": 2,
                 "namespace": 14,
                 "limit": 50,
