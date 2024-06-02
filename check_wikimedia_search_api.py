@@ -12,11 +12,14 @@ def check_match(result, expected_result):
     return ('yes', result_str) if expected_result in result_str else ('no', '')
 
 def process_api(api_name, base_url, params, search_term, expected_result):
+    # Replace None values in params with the search term
+    params = {k: (search_term if v is None else v) for k, v in params.items()}
     result, full_url = call_api(base_url, params)
     was_match_found, matched_text = check_match(result, expected_result)
     return [api_name, expected_result, search_term, was_match_found, matched_text, full_url]
 
-def main(input_file):
+def main():
+    input_file = 'input.csv'
     apis = [
         {
             "name": "query_apfrom",
@@ -51,10 +54,6 @@ def main(input_file):
         for row in reader:
             search_term, expected_result = row
             for api in apis:
-                # Update the search term in the parameters
-                api['params']['apfrom'] = search_term if 'apfrom' in api['params'] else api['params']['apfrom']
-                api['params']['apprefix'] = search_term if 'apprefix' in api['params'] else api['params']['apprefix']
-                api['params']['search'] = search_term if 'search' in api['params'] else api['params']['search']
                 result = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
                 results.append(result)
     
@@ -64,11 +63,4 @@ def main(input_file):
         writer.writerows(results)
 
 if __name__ == "__main__":
-    import argparse
-
-    parser = argparse.ArgumentParser(description="Process API calls and check for expected results.")
-    parser.add_argument("input_file", type=str, help="The input CSV file with search_term and expected_result")
-
-    args = parser.parse_args()
-
-    main(args.input_file)
+    main()
