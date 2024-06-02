@@ -86,20 +86,6 @@ def main():
             }
         },
         {
-            "name": "srsearch",
-            "url": WM_API,
-            "params": {
-                "format": "json",
-                "action": "query",
-                "list": "search",
-                "formatversion": 2,
-                "generator": "search",
-                "srnamespace" : 14,
-                "srlimit": 90,
-                "srsearch": "%search_term%"  # Placeholder for the search term
-            }
-        },
-        {
             "name": "gsr_intitle",
             "url": WM_API,
             "params": {
@@ -151,6 +137,21 @@ def main():
                 "prop": "info", 
                 "gcllimit": 500,
                 "titles": "%search_term%"  # Placeholder for the search term
+            }
+        },
+        {
+            "name": "gpssearch",
+            "url": WM_API,
+            "params": {
+                "format": "json",
+                "action": "query",
+                "prop": "info%7Cpageprops",
+                "ppprop": "disambiguation",
+                "redirects": "true",
+                "generator": "prefixsearch",
+                "gpsnamespace" : 14,
+                "gpslimit": 90,
+                "gpssearch": "%search_term%"  # Placeholder for the search term
             }
         },
     ]
