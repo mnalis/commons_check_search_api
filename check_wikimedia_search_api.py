@@ -54,7 +54,7 @@ def main():
                 "action": "query",
                 "list": "allpages",
                 "apnamespace": 14,
-                "aplimit": 50,
+                "aplimit": 90,
                 "apfrom": None,  # Placeholder for the search term
                 "apprefix": None  # Placeholder for the search term
             }
@@ -67,10 +67,24 @@ def main():
                 "action": "opensearch",
                 "formatversion": 2,
                 "namespace": 14,
-                "limit": 50,
+                "limit": 90,
                 "search": None  # Placeholder for the search term
             }
-        }
+        },
+        {
+            "name": "gsrsearch",
+            "url": WM_API,
+            "params": {
+                "format": "json",
+                "action": "query",
+                "formatversion": 2,
+                "generator": "search",
+                "gsrnamespace" : 14,
+                "gsrlimit": 90,
+                "gsroffset": 0,
+                "gsrsearch": None  # Placeholder for the search term
+            }
+        },
     ]
     
     results = []
