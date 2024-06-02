@@ -45,7 +45,6 @@ def process_api(api_name, base_url, params, search_term, expected_result):
     return display_text, tooltip, full_url
 
 def main():
-    input_file = 'input.csv'
     apis = [
         {
             "name": "HotCat",
@@ -75,7 +74,7 @@ def main():
     ]
     
     results = []
-    with open(input_file, 'r') as file:
+    with open('input.csv', 'r') as file:
         reader = csv.reader(file, delimiter='|')
         for row in reader:
             search_term, expected_result = row
