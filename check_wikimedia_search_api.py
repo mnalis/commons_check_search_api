@@ -1,5 +1,5 @@
 # for fiding best solution to https://github.com/commons-app/apps-android-commons/issues/3179
-# by mnalis, relased under CC0 - version 20240602.1
+# by mnalis, released under CC0 - version 20240602.1
 
 import requests
 import csv
