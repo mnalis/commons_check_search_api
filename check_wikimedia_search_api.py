@@ -32,7 +32,7 @@ def find_full_matches(data, expected_result):
     search_any(data)
     return matches
 
-def process_api(api_name, base_url, params, search_term, expected_result):
+def process_api(api_name, base_url, params, search_term, expected_result, must_not_match):
     # Replace None values in params with the search term
     params = {k: (search_term if v is None else v) for k, v in params.items()}
     result, full_url = call_api(base_url, params)
@@ -40,7 +40,8 @@ def process_api(api_name, base_url, params, search_term, expected_result):
     matched_text = ', '.join(f'"{match}"' for match in matches) if matches else None
     tooltip = matched_text if matches else '---'
     display_text = 'matched' if matches else 'no'
-    return display_text, tooltip, full_url
+    good_or_bad = ':heavy_check_mark:' if ((matches and not must_not_match) or (not matches and must_not_match)) else ':x:'
+    return good_or_bad, display_text, tooltip, full_url
 
 def main():
     apis = [
@@ -83,13 +84,12 @@ def main():
                 print ("must not match "+str(must_not_match)+" for " +search_term)
             row_result = [expected_result, search_term]
             for api in apis:
-                display_text, tooltip, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
+                good_or_bad, display_text, tooltip, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result, must_not_match)
                 tooltip = tooltip.replace('"', r'\"')
-                row_result.append(f'[{display_text}]({full_url} "{tooltip}")')
-            row_result.append ('?')
+                row_result.append(f'{good_or_bad} [{display_text}]({full_url} "{tooltip}")')
             results.append(row_result)
 
-    header = ["Expected Result", "Search Term"] + [api["name"] for api in apis] + ["Good?"]
+    header = ["Expected Result", "Search Term"] + [api["name"] for api in apis]
     
     with open('output.md', 'w') as file:
         file.write('| ' + ' | '.join(header) + ' |\n')
