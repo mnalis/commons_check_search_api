@@ -40,7 +40,7 @@ def process_api(api_name, base_url, params, search_term, expected_result):
     result, full_url = call_api(base_url, params)
     matches = find_full_matches(result, expected_result)
     matched_text = ', '.join(f'"{match}"' for match in matches) if matches else "no"
-    tooltip = f'yes ({matched_text})' if matches else "no"
+    tooltip = matched_text if matches else '---'
     display_text = "yes" if matches else "no"
     return display_text, tooltip, full_url
 
