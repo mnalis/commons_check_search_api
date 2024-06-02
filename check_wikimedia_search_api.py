@@ -1,23 +1,45 @@
 import requests
 import csv
 import urllib.parse
-import re
+import json
 
 def call_api(base_url, params):
     full_url = f"{base_url}?{urllib.parse.urlencode(params)}"
     response = requests.get(full_url)
     return response.json(), full_url
 
-def find_matches(result, expected_result):
-    result_str = str(result)
-    matches = re.findall(re.escape(expected_result), result_str)
+def find_full_matches(data, expected_result):
+    matches = []
+    def search_dict(d):
+        for k, v in d.items():
+            if isinstance(v, dict):
+                search_dict(v)
+            elif isinstance(v, list):
+                search_list(v)
+            elif isinstance(v, str) and expected_result in v:
+                matches.append(v)
+
+    def search_list(lst):
+        for item in lst:
+            if isinstance(item, dict):
+                search_dict(item)
+            elif isinstance(item, list):
+                search_list(item)
+            elif isinstance(item, str) and expected_result in item:
+                matches.append(item)
+    
+    if isinstance(data, dict):
+        search_dict(data)
+    elif isinstance(data, list):
+        search_list(data)
+    
     return matches
 
 def process_api(api_name, base_url, params, search_term, expected_result):
     # Replace None values in params with the search term
     params = {k: (search_term if v is None else v) for k, v in params.items()}
     result, full_url = call_api(base_url, params)
-    matches = find_matches(result, expected_result)
+    matches = find_full_matches(result, expected_result)
     was_match_found = 'yes' if matches else 'no'
     matched_text = ', '.join(f'"{match}"' for match in matches)
     return [api_name, expected_result, search_term, was_match_found, matched_text, full_url]
