@@ -12,23 +12,22 @@ def call_api(base_url, params):
 
 def find_full_matches(data, expected_result):
     matches = []
+    
+    def search_common(v):
+        if isinstance(v, dict):
+            search_dict(v)
+        elif isinstance(v, list):
+            search_list(v)
+        elif isinstance(v, str) and expected_result in v:
+            matches.append(v)
+    
     def search_dict(d):
         for k, v in d.items():
-            if isinstance(v, dict):
-                search_dict(v)
-            elif isinstance(v, list):
-                search_list(v)
-            elif isinstance(v, str) and expected_result in v:
-                matches.append(v)
+            search_common(v)
 
     def search_list(lst):
-        for item in lst:
-            if isinstance(item, dict):
-                search_dict(item)
-            elif isinstance(item, list):
-                search_list(item)
-            elif isinstance(item, str) and expected_result in item:
-                matches.append(item)
+        for v in lst:
+            search_common(v)
     
     if isinstance(data, dict):
         search_dict(data)
@@ -42,7 +41,7 @@ def process_api(api_name, base_url, params, search_term, expected_result):
     params = {k: (search_term if v is None else v) for k, v in params.items()}
     result, full_url = call_api(base_url, params)
     matches = find_full_matches(result, expected_result)
-    matched_text = ', '.join(f'"{match}"' for match in matches) if matches else "no"
+    matched_text = ', '.join(f'"{match}"' for match in matches) if matches else None
     tooltip = matched_text if matches else '---'
     display_text = "matched" if matches else "---"
     return display_text, tooltip, full_url
