@@ -80,7 +80,7 @@ def main():
             row_result = [expected_result, search_term]
             for api in apis:
                 matched_text, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
-                row_result.append(f'[{search_term}]({full_url})' if matched_text != ":x:" else matched_text)
+                row_result.append(f'[{matched_text}]({full_url})')
             results.append(row_result)
     
     header = ["Expected Result", "Search Term", "HotCat", "Special:UploadWizard"]
