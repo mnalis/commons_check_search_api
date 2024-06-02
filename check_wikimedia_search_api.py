@@ -1,3 +1,6 @@
+# for fiding best solution to https://github.com/commons-app/apps-android-commons/issues/3179
+# by mnalis, relased under CC0 - version 20240602.1
+
 import requests
 import csv
 import urllib.parse
@@ -77,7 +80,10 @@ def main():
     with open('input.csv', 'r') as file:
         reader = csv.reader(file, delimiter='|')
         for row in reader:
-            search_term, expected_result = row
+            search_term, expected_result, must_not_match = row
+            must_not_match=bool(int(must_not_match))
+            if must_not_match:
+                print ("must not match "+str(must_not_match)+" for " +search_term)
             row_result = [expected_result, search_term]
             for api in apis:
                 display_text, tooltip, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result)
