@@ -148,7 +148,7 @@ def main():
     with open('input.csv', 'r') as file:
         reader = csv.reader(file, delimiter='|', quotechar=None)
         for row in reader:
-            search_term, expected_result, must_not_match, description = row
+            expected_result, search_term, must_not_match, description = row
             must_not_match=bool(int(must_not_match))
             tooltip_description = description.replace('"', r'\"')
             category_url = f'https://commons.wikimedia.org/wiki/Category:{expected_result}'

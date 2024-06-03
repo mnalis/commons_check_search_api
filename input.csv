@@ -1,31 +1,31 @@
 Alojzije Stepinac|Alojzije Stepinac|0|Exact match, including case
-alojzije Step|Alojzije Stepinac|0|Start of the category name, first word incorrect lowercase, second word correct uppercase
-alojzije step|Alojzije Stepinac|0|Start of the category name, both words incorrect lowercase
-franjo|Franjo Tuđman|0|FIXME
-franjo Tu|Franjo Tuđman|0|FIXME
-Franjo Tu|Franjo Tuđman|0|FIXME
-franjo tu|Franjo Tuđman|0|FIXME
-Tuđman|Tuđman (surname)|0|FIXME
-Tuđman|Franjo Tuđman|0|FIXME
-Hansaviertel|Holsteiner Ufer (Berlin-Hansaviertel)|0|FIXME
-Olea|Olea (ship, 1981)|0|FIXME
-olea|Olea (ship, 1981)|0|FIXME
-Olea (|Olea (ship, 1981)|0|FIXME
-olea (|Olea (ship, 1981)|0|FIXME
-olea ship|Olea (ship, 1981)|0|FIXME
-archeology serbia|Archeology in Serbia|0|FIXME
-archeology in serbia|Archeology in Serbia|0|FIXME
-Archeology Serbia|Archeology in Serbia|0|FIXME
+Alojzije Stepinac|alojzije Step|0|Start of the category name, first word incorrect lowercase, second word correct uppercase
+Alojzije Stepinac|alojzije step|0|Start of the category name, both words incorrect lowercase
+Franjo Tuđman|franjo|0|FIXME
+Franjo Tuđman|franjo Tu|0|FIXME
+Franjo Tuđman|Franjo Tu|0|FIXME
+Franjo Tuđman|franjo tu|0|FIXME
+Tuđman (surname)|Tuđman|0|FIXME
+Franjo Tuđman|Tuđman|0|FIXME
+Holsteiner Ufer (Berlin-Hansaviertel)|Hansaviertel|0|FIXME
+Olea (ship, 1981)|Olea|0|FIXME
+Olea (ship, 1981)|olea|0|FIXME
+Olea (ship, 1981)|Olea (|0|FIXME
+Olea (ship, 1981)|olea (|0|FIXME
+Olea (ship, 1981)|olea ship|0|FIXME
+Archeology in Serbia|archeology serbia|0|FIXME
+Archeology in Serbia|archeology in serbia|0|FIXME
+Archeology in Serbia|Archeology Serbia|0|FIXME
 Archeology in Serbia|Archeology in Serbia|0|FIXME
-Photographs ta|Photographs taken on|1|FIXME
-taken|Photographs taken on|1|FIXME
-move|Requested moves|1|FIXME
-flapja|Flapjacks|0|FIXME
-Azabujuban|Azabujuban summer festival|1|FIXME
-temple of ishtar|Temple of Ishtar at Mari|0|FIXME
-Nature of Skole R|Nature of Skole Raion|0|FIXME
-nature of skole r|Nature of Skole Raion|0|FIXME
-rose factory|"Rose" factory|0|FIXME
-"rose" factory|"Rose" factory|0|FIXME
+Photographs taken on|Photographs ta|1|FIXME
+Photographs taken on|taken|1|FIXME
+Requested moves|move|1|FIXME
+Flapjacks|flapja|0|FIXME
+Azabujuban summer festival|Azabujuban|1|FIXME
+Temple of Ishtar at Mari|temple of ishtar|0|FIXME
+Nature of Skole Raion|Nature of Skole R|0|FIXME
+Nature of Skole Raion|nature of skole r|0|FIXME
+"Rose" factory|rose factory|0|FIXME
+"Rose" factory|"rose" factory|0|FIXME
 "Rose" factory|"Rose" factory|0|FIXME
-covid-19 pandemic in af|COVID-19 pandemic in Africa|0|FIXME
+COVID-19 pandemic in Africa|covid-19 pandemic in af|0|FIXME
