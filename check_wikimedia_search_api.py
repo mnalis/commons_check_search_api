@@ -139,20 +139,6 @@ def main():
                 "titles": "%search_term%"  # Placeholder for the search term
             }
         },
-        {
-            "name": "ps",
-            "url": WM_API,
-            "params": {
-                "format": "json",
-                "action": "query",
-                "list": "prefixsearch",
-                "psprofile": "engine_autoselect", # see https://www.mediawiki.org/wiki/API:Prefixsearch for alternate values
-                "psnamespace" : 14,
-                "pslimit": 90,
-                "psoffset": 0,
-                "pssearch": "%search_term%"  # Placeholder for the search term
-            }
-        },
     ]
     
     results = []
