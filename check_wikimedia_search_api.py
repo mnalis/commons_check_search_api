@@ -112,33 +112,34 @@ def main():
                 "gacprefix": "%search_term%"  # Placeholder for the search term
             }
         },
-        {
-            "name": "app3",
-            "url": WM_API,
-            "params": {
-                "format": "json",
-                "action": "query",
-                "formatversion": 2,
-                "generator": "categorymembers",
-                "gcmtype": "subcat",
-                "prop": "info", 
-                "gcmlimit": 500,
-                "gcmtitle": "Category:%search_term%"  # Placeholder for the search term
-            }
-        },
-        {
-            "name": "app4",
-            "url": WM_API,
-            "params": {
-                "format": "json",
-                "action": "query",
-                "formatversion": 2,
-                "generator": "categories",
-                "prop": "info", 
-                "gcllimit": 500,
-                "titles": "%search_term%"  # Placeholder for the search term
-            }
-        },
+# not used, see https://github.com/commons-app/apps-android-commons/issues/3179#issuecomment-2144416029
+#        {
+#            "name": "app3",
+#            "url": WM_API,
+#            "params": {
+#                "format": "json",
+#                "action": "query",
+#                "formatversion": 2,
+#                "generator": "categorymembers",
+#                "gcmtype": "subcat",
+#                "prop": "info", 
+#                "gcmlimit": 500,
+#                "gcmtitle": "Category:%search_term%"  # Placeholder for the search term
+#            }
+#        },
+#        {
+#            "name": "app4",
+#            "url": WM_API,
+#            "params": {
+#                "format": "json",
+#                "action": "query",
+#                "formatversion": 2,
+#                "generator": "categories",
+#                "prop": "info", 
+#                "gcllimit": 500,
+#                "titles": "%search_term%"  # Placeholder for the search term
+#            }
+#        },
     ]
     
     results = []
