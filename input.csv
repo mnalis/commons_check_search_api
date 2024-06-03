@@ -1,31 +1,35 @@
 Alojzije Stepinac|Alojzije Stepinac|0|Exact match, including case
-Alojzije Stepinac|alojzije Step|0|Start of the category name, first word incorrect lowercase, second word correct uppercase
-Alojzije Stepinac|alojzije step|0|Start of the category name, both words incorrect lowercase
-Franjo Tuđman|franjo|0|FIXME
-Franjo Tuđman|franjo Tu|0|FIXME
-Franjo Tuđman|Franjo Tu|0|FIXME
-Franjo Tuđman|franjo tu|0|FIXME
-Tuđman (surname)|Tuđman|0|FIXME
-Franjo Tuđman|Tuđman|0|FIXME
-Holsteiner Ufer (Berlin-Hansaviertel)|Hansaviertel|0|FIXME
-Olea (ship, 1981)|Olea|0|FIXME
-Olea (ship, 1981)|olea|0|FIXME
-Olea (ship, 1981)|Olea (|0|FIXME
-Olea (ship, 1981)|olea (|0|FIXME
-Olea (ship, 1981)|olea ship|0|FIXME
-Archeology in Serbia|archeology serbia|0|FIXME
-Archeology in Serbia|archeology in serbia|0|FIXME
-Archeology in Serbia|Archeology Serbia|0|FIXME
-Archeology in Serbia|Archeology in Serbia|0|FIXME
-Photographs taken on|Photographs ta|1|FIXME
-Photographs taken on|taken|1|FIXME
-Requested moves|move|1|FIXME
-Flapjacks|flapja|0|FIXME
-Azabujuban summer festival|Azabujuban|1|FIXME
-Temple of Ishtar at Mari|temple of ishtar|0|FIXME
-Nature of Skole Raion|Nature of Skole R|0|FIXME
-Nature of Skole Raion|nature of skole r|0|FIXME
-"Rose" factory|rose factory|0|FIXME
-"Rose" factory|"rose" factory|0|FIXME
-"Rose" factory|"Rose" factory|0|FIXME
-COVID-19 pandemic in Africa|covid-19 pandemic in af|0|FIXME
+Alojzije Stepinac|alojzije Step|0|Word and a half: first word incorrect lowercase, second word correct uppercase
+Alojzije Stepinac|alojzije step|0|Word and a half: both words incorrect lowercase
+Franjo Tuđman|franjo|0|First word only: incorrect lowercase
+Franjo Tuđman|Franjo Tu|0|Word and a half: both words correct uppercase
+Franjo Tuđman|franjo Tu|0|Word and a half: first word incorrect lowercase, second word correct uppercase
+Franjo Tuđman|franjo tu|0|Word and a half: both words incorrect lowercase
+Franjo Tuđman|Tuđman|0|Only second word, correct uppercase
+Tuđman (surname)|Tuđman|0|Only first word, correct uppercase
+Holsteiner Ufer (Berlin-Hansaviertel)|Hansaviertel|0|Matching on non-first partial word, correct uppercase
+Olea (ship, 1981)|Olea|0|contains parenthesis: first word with correct uppercase
+Olea (ship, 1981)|olea|0|contains parenthesis: first word with incorrect lowercase
+Olea (ship, 1981)|Olea (|0|contains parenthesis: first word with correct uppercase and a parenthesis
+Olea (ship, 1981)|olea (|0|contains parenthesis: first word with incorrect lowercase and a parenthesis
+Olea (ship, 1981)|olea ship|0|contains parenthesis: first and second words with incorrect lowercase, ignoring parenthesis
+Archeology in Serbia|Archeology in Serbia|1|Exact match all words (including case) but for redirected (due to misspelling) Category. Should not match.
+Archaeology in Serbia|Archaeology in Serbia|0|Exact match all words (including case)
+Archaeology in Serbia|archaeology in serbia|0|All words match, but all wrong lowercase
+Archaeology in Serbia|Archaeology Serbia|0|First and third word in correct uppercase, but missing second word
+Archaeology in Serbia|archaeology serbia|0|First and third word in incorrect lowercase, and missing second word
+Photographs taken on|Photographs ta|1|Hidden category: word and half, correct case. Should not match.
+Photographs taken on|taken|1|Hidden category: second word in incorrect lowercase. Should not match.
+Requested moves|move|1|Hidden category: partial second word in correct lowercase. Should not match.
+Flapjacks|flapja|0|See https://github.com/commons-app/apps-android-commons/issues/22
+Azabujuban summer festival|Azabujuban|1|Exact match first word (including case) but for redirected (due to misspelling) Category. Should not match.
+Temple of Ishtar at Mari|temple of ishtar|0|see discussion starting at https://github.com/commons-app/apps-android-commons/issues/3179#issuecomment-607259657
+Nature of Skole Raion|Nature of Skole Raion|0|Category without Category:* page: Exact match (including case) all 4 words
+Nature of Skole Raion|nature of skole raion|0|Category without Category:* page: incorrect lowercase all 4 words
+Nature of Skole Raion|Nature of Skole R|0|Category without Category:* page: correct case 3.5 words
+Nature of Skole Raion|nature of skole r|0|Category without Category:* page: incorrect lowercase 3.5 words
+"Rose" factory|"Rose" factory|0|Category without Category:* page: starts with quote marks: Exact match and case including quotes
+"Rose" factory|"rose" factory|0|Category without Category:* page: starts with quote marks: incorrect lowercase first word, but has quotes
+"Rose" factory|Rose factory|0|Category without Category:* page: starts with quote marks: correct case both words, but missing quotes
+"Rose" factory|rose factory|0|Category without Category:* page: starts with quote marks: incorrect lowercase first word, but missing quotes
+COVID-19 pandemic in Africa|covid-19 pandemic in af|0|incorrect case for MULTIPLE letters in first word, otherwise 3.5 words match
