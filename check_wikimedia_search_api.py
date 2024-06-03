@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # for finding best solution to Wikimedia Commons category search at  https://github.com/commons-app/apps-android-commons/issues/3179
-# by mnalis, released under Apache license 2.0 - version 20240603.3
+# by mnalis, released under Apache license 2.0 - version 20240603.4
 
 import requests
 import csv
@@ -80,6 +80,9 @@ def main():
                 "action": "query",
                 "formatversion": 2,
                 "generator": "search",
+                "prop": "description|pageimages",
+                "piprop": "thumbnail",
+                "pithumbsize": "70",
                 "gsrnamespace" : 14,
                 "gsrlimit": 90,
                 "gsroffset": 0,
@@ -108,6 +111,9 @@ def main():
                 "action": "query",
                 "formatversion": 2,
                 "generator": "allcategories",
+                "prop" : "categoryinfo|description|pageimages",
+                "piprop": "thumbnail",
+                "pithumbsize": "70",
                 "gaclimit": 90,
                 "gacoffset": 0,
                 "gacprefix": "%search_term%"  # Placeholder for the search term
