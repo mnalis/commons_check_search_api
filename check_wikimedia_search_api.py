@@ -47,19 +47,19 @@ def process_api(api_name, base_url, params, search_term, expected_result, must_n
 def main():
     WM_API = "https://commons.wikimedia.org/w/api.php"
     apis = [
-        {
-            "name": "HotCat",
-            "url": WM_API,
-            "params": {
-                "format": "json",
-                "action": "query",
-                "list": "allpages",
-                "apnamespace": 14,
-                "aplimit": 90,
-                "apfrom": "%search_term%",  # Placeholder for the search term
-                "apprefix": "%search_term%"  # Placeholder for the search term
-            }
-        },
+#        {
+#            "name": "HotCat",
+#            "url": WM_API,
+#            "params": {
+#                "format": "json",
+#                "action": "query",
+#                "list": "allpages",
+#                "apnamespace": 14,
+#                "aplimit": 90,
+#                "apfrom": "%search_term%",  # Placeholder for the search term
+#                "apprefix": "%search_term%"  # Placeholder for the search term
+#            }
+#        },
         {
             "name": "Special:UW",
             "url": WM_API,
@@ -86,20 +86,20 @@ def main():
                 "gsrsearch": "%search_term%"  # Placeholder for the search term
             }
         },
-        {
-            "name": "gsr_intitle",
-            "url": WM_API,
-            "params": {
-                "format": "json",
-                "action": "query",
-                "formatversion": 2,
-                "generator": "search",
-                "gsrnamespace" : 14,
-                "gsrlimit": 90,
-                "gsroffset": 0,
-                "gsrsearch": "intitle:%search_term%"  # Placeholder for the search term
-            }
-        },
+#        {
+#            "name": "gsr_intitle",
+#            "url": WM_API,
+#            "params": {
+#                "format": "json",
+#                "action": "query",
+#                "formatversion": 2,
+#                "generator": "search",
+#                "gsrnamespace" : 14,
+#                "gsrlimit": 90,
+#                "gsroffset": 0,
+#                "gsrsearch": "intitle:%search_term%"  # Placeholder for the search term
+#            }
+#        },
         {
             "name": "app2",
             "url": WM_API,
