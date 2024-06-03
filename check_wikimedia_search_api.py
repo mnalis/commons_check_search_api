@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # for finding best solution to Wikimedia Commons category search at  https://github.com/commons-app/apps-android-commons/issues/3179
-# by mnalis, released under CC0 - version 20240603.2
+# by mnalis, released under Apache license 2.0 - version 20240603.3
 
 import requests
 import csv
