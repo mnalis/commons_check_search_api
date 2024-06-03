@@ -152,8 +152,8 @@ def main():
             expected_result, search_term, must_not_match, description = row
             must_not_match=bool(int(must_not_match))
             tooltip_description = description.replace('"', r'\"')
-            category_url = f'https://commons.wikimedia.org/wiki/Category:{expected_result}'
-            row_result = [f'[{expected_result}]({category_url}) "{tooltip_description}"']
+            category_url = f'https://commons.wikimedia.org/wiki/Category:{urllib.parse.quote(expected_result)}'
+            row_result = [f'[{expected_result}]({category_url} "{tooltip_description}")']
             row_result.append(search_term)
             for api in apis:
                 good_or_bad, display_text, tooltip_matches, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result, must_not_match)
