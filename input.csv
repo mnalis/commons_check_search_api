@@ -32,4 +32,6 @@ Nature of Skole Raion|nature of skole r|0|Category without Category:* page: inco
 "Rose" factory|"rose" factory|0|Category without Category:* page: starts with quote marks: incorrect lowercase first word, but has quotes
 "Rose" factory|Rose factory|0|Category without Category:* page: starts with quote marks: correct case both words, but missing quotes
 "Rose" factory|rose factory|0|Category without Category:* page: starts with quote marks: incorrect lowercase first word, but missing quotes
-COVID-19 pandemic in Africa|covid-19 pandemic in af|0|incorrect case for MULTIPLE letters in first word, otherwise 3.5 words match
+COVID-19 pandemic in Africa|COVID-19 pandemic in Af|0|Fully correct case for all 3.5 words
+COVID-19 pandemic in Africa|covid-19 pandemic in Af|0|incorrect case for MULTIPLE letters in first word only, otherwise 3.5 words match
+COVID-19 pandemic in Africa|covid-19 pandemic in af|0|incorrect case for MULTIPLE letters in first word and 4th word, otherwise 3.5 words match
