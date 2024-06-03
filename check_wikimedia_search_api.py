@@ -153,7 +153,7 @@ def main():
             tooltip_description = description.replace('"', r'\"')
             category_url = f'https://commons.wikimedia.org/wiki/Category:{expected_result}'
             row_result = [f'[{expected_result}]({category_url}) "{tooltip_description}"']
-            results.append(search_term)
+            row_result.append(search_term)
             for api in apis:
                 good_or_bad, display_text, tooltip_matches, full_url = process_api(api['name'], api['url'], api['params'], search_term, expected_result, must_not_match)
                 tooltip_matches = tooltip_matches.replace('"', r'\"')
